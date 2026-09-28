@@ -1,0 +1,2058 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXORA — Premium E-Commerce</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:#050505;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+button,input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#070707;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#b9952e;
+    border-radius:10px;
+}
+
+/* TOP */
+
+.top{
+    height:38px;
+    background:linear-gradient(90deg,#9b7620,#e2c45b,#9b7620);
+    color:#050505;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+/* NAV */
+
+nav{
+    height:78px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,5,5,.82);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+}
+
+.logo{
+    font-family:"Playfair Display",serif;
+    font-size:29px;
+    letter-spacing:5px;
+    color:#d7b44b;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#ccc;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#e0bd4e;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-btn{
+    width:42px;
+    height:42px;
+    border:1px solid #292929;
+    background:#101010;
+    color:white;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    color:#e0bd4e;
+    border-color:#b9952e;
+    transform:translateY(-2px);
+}
+
+.cart-button{
+    position:relative;
+}
+
+.count{
+    position:absolute;
+    top:-3px;
+    right:-3px;
+    width:19px;
+    height:19px;
+    border-radius:50%;
+    background:#d6b348;
+    color:#000;
+    display:grid;
+    place-items:center;
+    font-size:10px;
+    font-weight:800;
+}
+
+/* HERO */
+
+.hero{
+    min-height:720px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:80px 7%;
+    overflow:hidden;
+    background:#080808;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(90deg,#050505 5%,rgba(5,5,5,.9) 34%,rgba(5,5,5,.35) 70%,rgba(5,5,5,.7)),
+      url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=90");
+    background-size:cover;
+    background-position:center;
+    opacity:.9;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(215,180,75,.15);
+    border-radius:50%;
+    right:-100px;
+    bottom:-200px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:690px;
+}
+
+.hero-label{
+    display:inline-block;
+    padding:9px 17px;
+    border:1px solid rgba(220,187,76,.6);
+    border-radius:30px;
+    color:#e1bd4c;
+    font-size:11px;
+    letter-spacing:3px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(55px,7vw,92px);
+    line-height:.95;
+    margin-bottom:28px;
+}
+
+.hero h1 span{
+    color:#d8b54c;
+}
+
+.hero p{
+    color:#b5b5b5;
+    line-height:1.8;
+    max-width:540px;
+    margin-bottom:32px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.gold-btn{
+    border:none;
+    background:linear-gradient(135deg,#b58a28,#f0d26a,#a77c20);
+    color:#080808;
+    padding:14px 25px;
+    border-radius:8px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.gold-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(211,174,59,.25);
+}
+
+.outline-btn{
+    background:rgba(0,0,0,.4);
+    color:#fff;
+    border:1px solid #555;
+    padding:14px 25px;
+    border-radius:8px;
+}
+
+.outline-btn:hover{
+    border-color:#d4af37;
+    color:#d4af37;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid #202020;
+    border-bottom:1px solid #202020;
+    background:#0b0b0b;
+}
+
+.feature{
+    padding:27px;
+    text-align:center;
+    border-right:1px solid #202020;
+}
+
+.feature-icon{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.feature strong{
+    display:block;
+    font-size:13px;
+}
+
+.feature span{
+    display:block;
+    color:#666;
+    font-size:11px;
+    margin-top:5px;
+}
+
+/* GENERAL */
+
+.section{
+    padding:95px 6%;
+}
+
+.heading{
+    margin-bottom:38px;
+}
+
+.heading small{
+    color:#d5b044;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:10px;
+}
+
+.heading h2{
+    font-family:"Playfair Display",serif;
+    font-size:45px;
+    margin-top:8px;
+}
+
+.heading p{
+    color:#777;
+    max-width:550px;
+    line-height:1.7;
+    margin-top:10px;
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.category{
+    height:280px;
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    border:1px solid #292929;
+    cursor:pointer;
+}
+
+.category img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.category::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent 30%,rgba(0,0,0,.9));
+}
+
+.category:hover img{
+    transform:scale(1.1);
+}
+
+.category-info{
+    position:absolute;
+    z-index:2;
+    bottom:20px;
+    left:20px;
+}
+
+.category-info h3{
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+}
+
+.category-info p{
+    color:#bbb;
+    font-size:11px;
+    margin-top:5px;
+}
+
+/* SEARCH */
+
+.shop-tools{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+}
+
+.search{
+    width:300px;
+    max-width:100%;
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    padding:13px 17px;
+    background:#101010;
+    color:#fff;
+    border:1px solid #292929;
+    border-radius:8px;
+    outline:none;
+}
+
+.search input:focus{
+    border-color:#b9952e;
+}
+
+.filters{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.filter{
+    padding:10px 16px;
+    background:#111;
+    border:1px solid #292929;
+    color:#999;
+    border-radius:25px;
+}
+
+.filter:hover,
+.filter.active{
+    background:#d2ae42;
+    color:#000;
+    border-color:#d2ae42;
+}
+
+/* PRODUCTS */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#0d0d0d;
+    border:1px solid #202020;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#655321;
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+
+.card-img{
+    height:285px;
+    position:relative;
+    overflow:hidden;
+    background:#161616;
+}
+
+.card-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.card:hover .card-img img{
+    transform:scale(1.07);
+}
+
+.badge-sale{
+    position:absolute;
+    left:12px;
+    top:12px;
+    background:#d7b349;
+    color:#000;
+    padding:6px 9px;
+    border-radius:5px;
+    font-size:9px;
+    font-weight:900;
+}
+
+.heart{
+    position:absolute;
+    top:11px;
+    right:11px;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:rgba(0,0,0,.7);
+    border:1px solid #555;
+    color:#fff;
+}
+
+.heart.active{
+    color:#ff5570;
+}
+
+.card-body{
+    padding:18px;
+}
+
+.category-name{
+    color:#777;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:9px;
+}
+
+.card h3{
+    font-size:15px;
+    margin:8px 0;
+}
+
+.stars{
+    color:#d6b34a;
+    font-size:11px;
+}
+
+.price{
+    margin-top:10px;
+    font-size:19px;
+    font-weight:800;
+}
+
+.old{
+    color:#666;
+    text-decoration:line-through;
+    font-size:11px;
+    margin-left:7px;
+}
+
+.card-actions{
+    display:grid;
+    grid-template-columns:1fr 43px;
+    gap:7px;
+    margin-top:14px;
+}
+
+.add{
+    padding:11px;
+    background:#151515;
+    border:1px solid #303030;
+    color:white;
+    border-radius:7px;
+    font-size:12px;
+    transition:.3s;
+}
+
+.add:hover{
+    background:#d5b044;
+    color:#000;
+}
+
+.info{
+    border:1px solid #303030;
+    background:#151515;
+    color:#ddd;
+    border-radius:7px;
+}
+
+/* BANNER */
+
+.banner{
+    margin:0 6% 90px;
+    min-height:360px;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:55px;
+    background:
+      linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.25)),
+      url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=90");
+    background-size:cover;
+    background-position:center;
+}
+
+.banner-content{
+    max-width:570px;
+}
+
+.banner small{
+    color:#d6b348;
+    letter-spacing:3px;
+}
+
+.banner h2{
+    font-family:"Playfair Display",serif;
+    font-size:47px;
+    margin:12px 0;
+}
+
+.banner p{
+    color:#bbb;
+    line-height:1.7;
+    margin-bottom:22px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    background:#0e0e0e;
+    padding:70px 6%;
+    text-align:center;
+    border-top:1px solid #202020;
+}
+
+.newsletter h2{
+    font-family:"Playfair Display",serif;
+    font-size:38px;
+}
+
+.newsletter p{
+    color:#777;
+    margin:10px auto 25px;
+}
+
+.newsletter-form{
+    max-width:520px;
+    margin:auto;
+    display:flex;
+}
+
+.newsletter-form input{
+    flex:1;
+    background:#050505;
+    border:1px solid #292929;
+    color:white;
+    padding:14px;
+    outline:none;
+    border-radius:7px 0 0 7px;
+}
+
+.newsletter-form button{
+    border-radius:0 7px 7px 0;
+}
+
+/* FOOTER */
+
+footer{
+    padding:65px 6% 25px;
+    background:#040404;
+    border-top:1px solid #1d1d1d;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-logo{
+    font-family:"Playfair Display",serif;
+    color:#d5b044;
+    font-size:28px;
+    letter-spacing:4px;
+}
+
+.about{
+    color:#666;
+    line-height:1.8;
+    font-size:12px;
+    max-width:360px;
+    margin-top:15px;
+}
+
+footer h4{
+    margin-bottom:15px;
+}
+
+footer a{
+    display:block;
+    color:#666;
+    text-decoration:none;
+    font-size:12px;
+    margin:10px 0;
+}
+
+footer a:hover{
+    color:#d5b044;
+}
+
+.copy{
+    margin-top:45px;
+    padding-top:20px;
+    border-top:1px solid #1c1c1c;
+    color:#555;
+    font-size:11px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* CART */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    z-index:1400;
+    display:none;
+}
+
+.overlay.show{
+    display:block;
+}
+
+.cart{
+    position:fixed;
+    top:0;
+    right:-450px;
+    width:min(450px,100%);
+    height:100vh;
+    z-index:1500;
+    background:#0e0e0e;
+    border-left:1px solid #292929;
+    transition:.4s;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+}
+
+.cart.open{
+    right:0;
+}
+
+.cart-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:18px;
+    border-bottom:1px solid #252525;
+}
+
+.close{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:#1b1b1b;
+    border:1px solid #333;
+    color:#fff;
+}
+
+.cart-list{
+    flex:1;
+    overflow:auto;
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid #202020;
+}
+
+.cart-item img{
+    width:70px;
+    height:70px;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-info h4{
+    font-size:13px;
+}
+
+.cart-info p{
+    color:#d5b044;
+    margin:7px 0;
+    font-size:12px;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.quantity button{
+    width:24px;
+    height:24px;
+    background:#1a1a1a;
+    color:white;
+    border:1px solid #333;
+}
+
+.remove{
+    background:none;
+    border:none;
+    color:#777;
+}
+
+.cart-bottom{
+    border-top:1px solid #292929;
+    padding-top:18px;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.checkout{
+    width:100%;
+    padding:14px;
+    background:#d5b044;
+    border:none;
+    border-radius:8px;
+    font-weight:800;
+}
+
+/* MODALS */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    z-index:2000;
+    display:none;
+    place-items:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:grid;
+}
+
+.modal-box{
+    width:min(700px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#111;
+    border:1px solid #343434;
+    border-radius:18px;
+    padding:28px;
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+    right:18px;
+    top:18px;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:1px solid #333;
+    background:#1b1b1b;
+    color:#fff;
+}
+
+.detail{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.detail img{
+    width:100%;
+    height:390px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.detail-info{
+    padding-top:20px;
+}
+
+.detail-info small{
+    color:#d5b044;
+    text-transform:uppercase;
+}
+
+.detail-info h2{
+    font-family:"Playfair Display",serif;
+    font-size:35px;
+    margin:10px 0;
+}
+
+.detail-info p{
+    color:#888;
+    line-height:1.8;
+    margin:18px 0;
+}
+
+.form{
+    display:grid;
+    gap:13px;
+    margin-top:22px;
+}
+
+.form input,
+.form select{
+    padding:13px;
+    background:#070707;
+    color:#fff;
+    border:1px solid #292929;
+    border-radius:7px;
+    outline:none;
+}
+
+.form input:focus,
+.form select:focus{
+    border-color:#d5b044;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,100px);
+    background:#d5b044;
+    color:#000;
+    padding:13px 20px;
+    border-radius:8px;
+    z-index:4000;
+    font-weight:800;
+    font-size:12px;
+    transition:.35s;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    .hero{
+        min-height:650px;
+        padding:60px 6%;
+    }
+
+    .hero h1{
+        font-size:54px;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .categories{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .section{
+        padding:65px 5%;
+    }
+
+    .banner{
+        margin:0 5% 65px;
+        padding:35px 25px;
+    }
+
+    .banner h2{
+        font-size:34px;
+    }
+
+    .detail{
+        grid-template-columns:1fr;
+    }
+
+    .detail img{
+        height:300px;
+    }
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:21px;
+    }
+
+    .products,
+    .categories{
+        grid-template-columns:1fr;
+    }
+
+    .category{
+        height:250px;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .feature{
+        padding:20px 10px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .copy{
+        display:block;
+        line-height:2;
+    }
+
+    .newsletter-form{
+        display:block;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button{
+        width:100%;
+        border-radius:7px;
+    }
+
+    .newsletter-form button{
+        margin-top:8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+    ✦ FREE SHIPPING ON ORDERS OVER $100 &nbsp; • &nbsp; PREMIUM COLLECTION 2026 ✦
+</div>
+
+<nav>
+
+    <div class="logo">LUXORA</div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#deals">Deals</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+
+        <button class="nav-btn" onclick="searchFocus()">⌕</button>
+
+        <button class="nav-btn cart-button" onclick="openCart()">
+            🛒
+            <span class="count" id="cartCount">0</span>
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-image"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            PREMIUM COLLECTION 2026
+        </div>
+
+        <h1>
+            Luxury<br>
+            <span>Without Limits.</span>
+        </h1>
+
+        <p>
+            Discover a carefully selected collection of fashion,
+            technology, watches and accessories designed for a
+            premium lifestyle.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="gold-btn" onclick="goShop()">
+                Explore Collection →
+            </button>
+
+            <button class="outline-btn" onclick="goDeals()">
+                View Exclusive Deals
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+    <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <strong>Fast Delivery</strong>
+        <span>Worldwide shipping</span>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🔐</div>
+        <strong>Secure Checkout</strong>
+        <span>Protected payments</span>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">↩</div>
+        <strong>Easy Returns</strong>
+        <span>Simple return process</span>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">✦</div>
+        <strong>Premium Quality</strong>
+        <span>Selected products</span>
+    </div>
+
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+    <div class="heading">
+        <small>Explore Collection</small>
+        <h2>Shop By Category</h2>
+        <p>
+            Find your perfect products from our premium collections.
+        </p>
+    </div>
+
+    <div class="categories">
+
+        <div class="category" onclick="setCategory('fashion')">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=85">
+            <div class="category-info">
+                <h3>Fashion</h3>
+                <p>Premium clothing</p>
+            </div>
+        </div>
+
+        <div class="category" onclick="setCategory('electronics')">
+            <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=900&q=85">
+            <div class="category-info">
+                <h3>Technology</h3>
+                <p>Modern electronics</p>
+            </div>
+        </div>
+
+        <div class="category" onclick="setCategory('watches')">
+            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85">
+            <div class="category-info">
+                <h3>Watches</h3>
+                <p>Luxury timepieces</p>
+            </div>
+        </div>
+
+        <div class="category" onclick="setCategory('accessories')">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85">
+            <div class="category-info">
+                <h3>Accessories</h3>
+                <p>Complete your style</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SHOP -->
+
+<section class="section" id="shop">
+
+    <div class="heading">
+        <small>Premium Store</small>
+        <h2>Featured Products</h2>
+        <p>
+            Browse our latest products and discover your next favorite item.
+        </p>
+    </div>
+
+    <div class="shop-tools">
+
+        <div class="filters">
+
+            <button class="filter active" onclick="filter('all',this)">
+                All
+            </button>
+
+            <button class="filter" onclick="filter('fashion',this)">
+                Fashion
+            </button>
+
+            <button class="filter" onclick="filter('electronics',this)">
+                Electronics
+            </button>
+
+            <button class="filter" onclick="filter('watches',this)">
+                Watches
+            </button>
+
+            <button class="filter" onclick="filter('accessories',this)">
+                Accessories
+            </button>
+
+        </div>
+
+        <div class="search">
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Search products..."
+                oninput="liveSearch()"
+            >
+        </div>
+
+    </div>
+
+    <div class="products" id="products"></div>
+
+</section>
+
+<!-- DEAL BANNER -->
+
+<section class="banner" id="deals">
+
+    <div class="banner-content">
+
+        <small>LIMITED TIME OFFER</small>
+
+        <h2>
+            Luxury Looks.<br>
+            Exclusive Prices.
+        </h2>
+
+        <p>
+            Save up to 40% on selected premium products.
+            Limited stock available.
+        </p>
+
+        <button class="gold-btn" onclick="goShop()">
+            Shop Deals →
+        </button>
+
+    </div>
+
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+    <h2>Join The LUXORA Club</h2>
+
+    <p>
+        Get new collection alerts and exclusive offers.
+    </p>
+
+    <form class="newsletter-form" onsubmit="subscribe(event)">
+
+        <input
+            type="email"
+            placeholder="Enter your email address"
+            required
+        >
+
+        <button class="gold-btn">
+            Subscribe
+        </button>
+
+    </form>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <div class="footer-logo">LUXORA</div>
+
+            <p class="about">
+                LUXORA is a premium e-commerce experience built
+                around modern design, quality products and
+                effortless shopping.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h4>Shop</h4>
+
+            <a href="#shop">All Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#deals">Special Deals</a>
+
+        </div>
+
+        <div>
+
+            <h4>Support</h4>
+
+            <a href="#">Help Center</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+
+        </div>
+
+        <div>
+
+            <h4>Company</h4>
+
+            <a href="#">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="#">Privacy</a>
+
+        </div>
+
+    </div>
+
+    <div class="copy">
+        <span>© 2026 LUXORA. All rights reserved.</span>
+        <span>Premium shopping experience.</span>
+    </div>
+
+</footer>
+
+<!-- OVERLAY -->
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<!-- CART -->
+
+<aside class="cart" id="cart">
+
+    <div class="cart-head">
+
+        <h2>Your Cart</h2>
+
+        <button class="close" onclick="closeCart()">×</button>
+
+    </div>
+
+    <div class="cart-list" id="cartList"></div>
+
+    <div class="cart-bottom">
+
+        <div class="total">
+            <span>Total</span>
+            <strong id="total">$0</strong>
+        </div>
+
+        <button class="checkout" onclick="checkout()">
+            Secure Checkout →
+        </button>
+
+    </div>
+
+</aside>
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="productModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeProduct()">×</button>
+
+        <div class="detail" id="detail"></div>
+
+    </div>
+
+</div>
+
+<!-- CHECKOUT -->
+
+<div class="modal" id="checkoutModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeCheckout()">×</button>
+
+        <h2>Secure Checkout</h2>
+
+        <p style="color:#777;margin-top:8px">
+            Enter your delivery information.
+        </p>
+
+        <form class="form" onsubmit="placeOrder(event)">
+
+            <input type="text" placeholder="Full Name" required>
+
+            <input type="email" placeholder="Email Address" required>
+
+            <input type="tel" placeholder="Phone Number" required>
+
+            <input type="text" placeholder="Delivery Address" required>
+
+            <select required>
+                <option value="">Select Payment Method</option>
+                <option>Cash on Delivery</option>
+                <option>Credit / Debit Card</option>
+                <option>Bank Transfer</option>
+            </select>
+
+            <button class="checkout">
+                Place Order ✓
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* ================================
+   PRODUCTS
+================================ */
+
+const products = [
+
+{
+ id:1,
+ name:"Premium Leather Jacket",
+ category:"fashion",
+ price:149,
+ old:199,
+ image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:true
+},
+
+{
+ id:2,
+ name:"Classic White Sneakers",
+ category:"fashion",
+ price:89,
+ old:119,
+ image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:true
+},
+
+{
+ id:3,
+ name:"Premium Smartphone",
+ category:"electronics",
+ price:799,
+ old:899,
+ image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:true
+},
+
+{
+ id:4,
+ name:"Wireless Headphones",
+ category:"electronics",
+ price:159,
+ old:199,
+ image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★☆",
+ sale:true
+},
+
+{
+ id:5,
+ name:"Luxury Chronograph",
+ category:"watches",
+ price:249,
+ old:319,
+ image:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:true
+},
+
+{
+ id:6,
+ name:"Classic Silver Watch",
+ category:"watches",
+ price:189,
+ old:239,
+ image:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:false
+},
+
+{
+ id:7,
+ name:"Luxury Leather Bag",
+ category:"accessories",
+ price:179,
+ old:229,
+ image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:true
+},
+
+{
+ id:8,
+ name:"Premium Sunglasses",
+ category:"accessories",
+ price:69,
+ old:99,
+ image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★☆",
+ sale:false
+},
+
+{
+ id:9,
+ name:"Minimal Black Hoodie",
+ category:"fashion",
+ price:69,
+ old:89,
+ image:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:false
+},
+
+{
+ id:10,
+ name:"Modern Laptop",
+ category:"electronics",
+ price:999,
+ old:1199,
+ image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:true
+},
+
+{
+ id:11,
+ name:"Designer Handbag",
+ category:"accessories",
+ price:219,
+ old:279,
+ image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85",
+ stars:"★★★★★",
+ sale:true
+},
+
+{
+ id:12,
+ name:"Smart Watch Pro",
+ category:"watches",
+ price:199,
+ old:249,
+ image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0szF-KDJbM6sWEWSNscKKshHZwxIPyYbBFX3N3sIb3w&s=10",
+ stars:"★★★★☆",
+ sale:true
+}
+
+];
+
+/* ================================
+   STATE
+================================ */
+
+let cart = JSON.parse(localStorage.getItem("luxoraCart")) || [];
+let currentCategory = "all";
+
+/* ================================
+   RENDER PRODUCTS
+================================ */
+
+function render(list=products){
+
+    const box=document.getElementById("products");
+
+    if(list.length===0){
+
+        box.innerHTML=`
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:70px;
+                color:#666;
+            ">
+                <div style="font-size:45px">🔎</div>
+                <h3 style="margin-top:15px">No products found</h3>
+                <p style="margin-top:7px">
+                    Try another search.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    box.innerHTML=list.map(p=>`
+
+        <article class="card">
+
+            <div class="card-img">
+
+                ${p.sale ? `<span class="badge-sale">SALE</span>` : ""}
+
+                <button
+                    class="heart"
+                    onclick="wishlist(this)"
+                >♡</button>
+
+                <img src="${p.image}" alt="${p.name}">
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="category-name">
+                    ${p.category}
+                </div>
+
+                <h3>${p.name}</h3>
+
+                <div class="stars">
+                    ${p.stars}
+                </div>
+
+                <div class="price">
+                    $${p.price}
+                    <span class="old">$${p.old}</span>
+                </div>
+
+                <div class="card-actions">
+
+                    <button
+                        class="add"
+                        onclick="addCart(${p.id})"
+                    >
+                        Add to Cart
+                    </button>
+
+                    <button
+                        class="info"
+                        onclick="productDetails(${p.id})"
+                    >
+                        ⓘ
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    `).join("");
+}
+
+/* ================================
+   FILTER
+================================ */
+
+function filter(category,button){
+
+    currentCategory=category;
+
+    document.querySelectorAll(".filter")
+        .forEach(x=>x.classList.remove("active"));
+
+    if(button){
+        button.classList.add("active");
+    }
+
+    const list = category==="all"
+        ? products
+        : products.filter(p=>p.category===category);
+
+    render(list);
+}
+
+function setCategory(category){
+
+    currentCategory=category;
+
+    const button=[...document.querySelectorAll(".filter")]
+        .find(x=>x.textContent.toLowerCase().includes(
+            category==="electronics" ? "electronics" :
+            category
+        ));
+
+    filter(category,button);
+
+    document.getElementById("shop")
+        .scrollIntoView({behavior:"smooth"});
+}
+
+/* ================================
+   LIVE SEARCH
+================================ */
+
+function liveSearch(){
+
+    const q=document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    let list=products;
+
+    if(currentCategory!=="all"){
+        list=list.filter(p=>p.category===currentCategory);
+    }
+
+    if(q){
+        list=list.filter(p=>
+            p.name.toLowerCase().includes(q) ||
+            p.category.toLowerCase().includes(q)
+        );
+    }
+
+    render(list);
+}
+
+function searchFocus(){
+
+    document.getElementById("searchInput").focus();
+
+    document.getElementById("shop")
+        .scrollIntoView({behavior:"smooth"});
+}
+
+/* ================================
+   CART
+================================ */
+
+function addCart(id){
+
+    const p=products.find(x=>x.id===id);
+
+    const existing=cart.find(x=>x.id===id);
+
+    if(existing){
+        existing.qty++;
+    }else{
+        cart.push({...p,qty:1});
+    }
+
+    save();
+
+    updateCart();
+
+    showToast(p.name+" added to cart ✓");
+}
+
+function save(){
+    localStorage.setItem("luxoraCart",JSON.stringify(cart));
+}
+
+function updateCart(){
+
+    const count=cart.reduce(
+        (sum,item)=>sum+item.qty,0
+    );
+
+    document.getElementById("cartCount").textContent=count;
+
+    const list=document.getElementById("cartList");
+
+    if(cart.length===0){
+
+        list.innerHTML=`
+            <div style="
+                text-align:center;
+                padding:70px 10px;
+                color:#666;
+            ">
+                <div style="font-size:50px">🛒</div>
+                <p style="margin-top:15px">
+                    Your cart is empty.
+                </p>
+            </div>
+        `;
+
+    }else{
+
+        list.innerHTML=cart.map(item=>`
+
+            <div class="cart-item">
+
+                <img src="${item.image}">
+
+                <div class="cart-info">
+
+                    <h4>${item.name}</h4>
+
+                    <p>$${item.price}</p>
+
+                    <div class="quantity">
+
+                        <button onclick="changeQty(${item.id},-1)">
+                            −
+                        </button>
+
+                        <span>${item.qty}</span>
+
+                        <button onclick="changeQty(${item.id},1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="remove"
+                    onclick="removeCart(${item.id})"
+                >
+                    ×
+                </button>
+
+            </div>
+
+        `).join("");
+    }
+
+    const total=cart.reduce(
+        (sum,item)=>sum+(item.price*item.qty),0
+    );
+
+    document.getElementById("total").textContent="$"+total;
+}
+
+function changeQty(id,amount){
+
+    const item=cart.find(x=>x.id===id);
+
+    if(!item)return;
+
+    item.qty+=amount;
+
+    if(item.qty<=0){
+        cart=cart.filter(x=>x.id!==id);
+    }
+
+    save();
+    updateCart();
+}
+
+function removeCart(id){
+
+    cart=cart.filter(x=>x.id!==id);
+
+    save();
+    updateCart();
+
+    showToast("Product removed");
+}
+
+function openCart(){
+
+    document.getElementById("cart")
+        .classList.add("open");
+
+    document.getElementById("overlay")
+        .classList.add("show");
+}
+
+function closeCart(){
+
+    document.getElementById("cart")
+        .classList.remove("open");
+
+    document.getElementById("overlay")
+        .classList.remove("show");
+}
+
+/* ================================
+   PRODUCT DETAILS
+================================ */
+
+function productDetails(id){
+
+    const p=products.find(x=>x.id===id);
+
+    document.getElementById("detail").innerHTML=`
+
+        <img src="${p.image}" alt="${p.name}">
+
+        <div class="detail-info">
+
+            <small>${p.category}</small>
+
+            <h2>${p.name}</h2>
+
+            <div class="stars">
+                ${p.stars}
+            </div>
+
+            <div class="price">
+                $${p.price}
+                <span class="old">$${p.old}</span>
+            </div>
+
+            <p>
+                Premium quality product selected for the
+                LUXORA collection. Designed with modern
+                style, excellent quality and a premium finish.
+            </p>
+
+            <button
+                class="gold-btn"
+                onclick="addCart(${p.id});closeProduct()"
+            >
+                Add To Cart
+            </button>
+
+        </div>
+
+    `;
+
+    document.getElementById("productModal")
+        .classList.add("show");
+}
+
+function closeProduct(){
+
+    document.getElementById("productModal")
+        .classList.remove("show");
+}
+
+/* ================================
+   WISHLIST
+================================ */
+
+function wishlist(btn){
+
+    btn.classList.toggle("active");
+
+    btn.textContent=
+        btn.classList.contains("active")
+        ? "♥"
+        : "♡";
+
+    if(btn.classList.contains("active")){
+        showToast("Added to wishlist ♥");
+    }
+}
+
+/* ================================
+   CHECKOUT
+================================ */
+
+function checkout(){
+
+    if(cart.length===0){
+        showToast("Your cart is empty");
+        return;
+    }
+
+    closeCart();
+
+    document.getElementById("checkoutModal")
+        .classList.add("show");
+}
+
+function closeCheckout(){
+
+    document.getElementById("checkoutModal")
+        .classList.remove("show");
+}
+
+function placeOrder(e){
+
+    e.preventDefault();
+
+    cart=[];
+
+    save();
+    updateCart();
+
+    closeCheckout();
+
+    showToast("🎉 Order placed successfully!");
+}
+
+/* ================================
+   NEWSLETTER
+================================ */
+
+function subscribe(e){
+
+    e.preventDefault();
+
+    e.target.reset();
+
+    showToast("You're now part of LUXORA ✓");
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+function goShop(){
+
+    document.getElementById("shop")
+        .scrollIntoView({behavior:"smooth"});
+}
+
+function goDeals(){
+
+    document.getElementById("deals")
+        .scrollIntoView({behavior:"smooth"});
+}
+
+/* ================================
+   TOAST
+================================ */
+
+let timer;
+
+function showToast(message){
+
+    const toast=document.getElementById("toast");
+
+    toast.textContent=message;
+
+    toast.classList.add("show");
+
+    clearTimeout(timer);
+
+    timer=setTimeout(()=>{
+        toast.classList.remove("show");
+    },2200);
+}
+
+/* ================================
+   START
+================================ */
+
+render();
+updateCart();
+
+</script>
+
+</body>
+</html>
+
